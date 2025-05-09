@@ -1,15 +1,21 @@
-import { Routes } from "react-router-dom";
 import "./App.css";
 import profilePic from "./assets/me.png";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 function App() {
+  const currentYear = new Date().getFullYear();
   return (
     <div>
       <div className="home-top">
-        <h1>Home</h1>
-        <h1>About</h1>
-        <h1>Contact</h1>
+        <Link to={"/"} className="home-links">
+          Home
+        </Link>
+        <Link to={"/about"} className="home-links">
+          About
+        </Link>
+        <Link to={"/contact"} className="home-links">
+          Contact
+        </Link>
       </div>
 
       <div className="My-picture">
@@ -22,13 +28,22 @@ function App() {
           I'm Mariam Sikharulidze, a web developer with a focus on{" "}
           <span>creating clean and functional websites.</span>
         </p>
+
+        <div className="copyright">
+          <p>© {currentYear} Mariam Sikharulidze.</p>
+        </div>
       </div>
 
       <Routes>
-        <Route path="/" element={<home />}>Home</Route>
-        <Route path="/about" element={<about />}>About</Route>
-        <Route path="/contact" element={<contact />}>Contact</Route>
-
+        <Route path="/" element={<home />}>
+          Home
+        </Route>
+        <Route path="/about" element={<about />}>
+          About
+        </Route>
+        <Route path="/contact" element={<contact />}>
+          Contact
+        </Route>
       </Routes>
     </div>
   );

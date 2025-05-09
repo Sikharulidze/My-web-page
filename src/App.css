@@ -9,11 +9,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  color: gray;
-  font-size: 20px;
-}
-
 .home-top {
   background-color: white;
   height: 5vh;
@@ -51,11 +46,30 @@ h1 {
   margin-right: 80px;
 }
 
-.bottom-p{
+.bottom-p {
   color: #939185;
   font-family: "Dancing Script", sans-serif;
   font-size: 2rem;
   text-align: center;
   width: 50%;
+}
 
+.home-links {
+  color: gray;
+  font-size: 20px;
+  text-decoration: none;
+  
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  opacity: 0.3;
+}
+
+.copyright p {
+  margin: 0;
 }
