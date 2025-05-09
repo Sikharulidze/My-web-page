@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  min-height: 100vh;
+}
+
+h1 {
+  color: gray;
+  font-size: 20px;
+}
+
+.home-top {
+  background-color: white;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.My-picture {
+  background-color: #e5e1da;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+
+.home-bottom {
+  background-color: #e6e6fa;
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bottom-text {
+  font-family: "Dancing Script", sans-serif;
+  font-style: italic;
+  color: #222831;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-right: 80px;
+}
+
+.bottom-p{
+  color: #939185;
+  font-family: "Dancing Script", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
+
+}
