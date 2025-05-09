@@ -1,0 +1,17 @@
+{
+ 
+    "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  
+  "home": {
+    "welcome": "Welcome!",
+    "description": "I'm Mariam Sikharulidze, a web developer with a focus on {{emphasis}}.",
+    "emphasis": "creating clean and functional websites"
+  },
+  "copyright": "© {{year}} Mariam Sikharulidze."
+}
+
+

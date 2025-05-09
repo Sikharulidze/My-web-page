@@ -38,7 +38,7 @@ body {
 }
 
 .bottom-text {
-  font-family: "Dancing Script", sans-serif;
+  font-family: "Dancing Script", cursive;
   font-style: italic;
   color: #222831;
   font-size: 3.5rem;
@@ -58,7 +58,6 @@ body {
   color: gray;
   font-size: 20px;
   text-decoration: none;
-  
 }
 
 .copyright {
@@ -72,4 +71,13 @@ body {
 
 .copyright p {
   margin: 0;
+}
+
+#language {
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }

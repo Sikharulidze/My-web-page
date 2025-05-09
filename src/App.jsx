@@ -1,51 +1,41 @@
 import "./App.css";
-import profilePic from "./assets/me.png";
 import { Link, Route, Routes } from "react-router-dom";
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
+import language_geo from "./locales/geo.json";
+import language_eng from "./locales/eng.json";
+import language_rus from "./locales/rus.json";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Layout from "./Layout";
+
+i18n.use(initReactI18next).init({
+  resources: {
+    eng: { translation: language_eng },
+    geo: { translation: language_geo },
+    rus: { translation: language_rus },
+  },
+  lng: "eng",
+  fallbackLng: "eng",
+
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 function App() {
-  const currentYear = new Date().getFullYear();
+  
+  useTranslation();
+
   return (
-    <div>
-      <div className="home-top">
-        <Link to={"/"} className="home-links">
-          Home
-        </Link>
-        <Link to={"/about"} className="home-links">
-          About
-        </Link>
-        <Link to={"/contact"} className="home-links">
-          Contact
-        </Link>
-      </div>
-
-      <div className="My-picture">
-        <img src={profilePic} alt="Mariam" />
-      </div>
-
-      <div className="home-bottom">
-        <h1 className="bottom-text">Welcome!</h1>
-        <p className="bottom-p">
-          I'm Mariam Sikharulidze, a web developer with a focus on{" "}
-          <span>creating clean and functional websites.</span>
-        </p>
-
-        <div className="copyright">
-          <p>© {currentYear} Mariam Sikharulidze.</p>
-        </div>
-      </div>
-
+    <Layout>
       <Routes>
-        <Route path="/" element={<home />}>
-          Home
-        </Route>
-        <Route path="/about" element={<about />}>
-          About
-        </Route>
-        <Route path="/contact" element={<contact />}>
-          Contact
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
-    </div>
+    </Layout>
   );
 }
 
