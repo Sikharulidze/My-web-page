@@ -18,12 +18,18 @@ function Layout({ children }) {
   return (
     <div>
       <div className="home-top">
-        <Link to="/" className="home-links">{t("nav.home")}</Link>
+        <Link to="/" className="home-links">
+          {t("nav.home")}
+        </Link>
         {location.pathname !== "/about" && (
-          <Link to="/about" className="home-links">{t("nav.about")}</Link>
+          <Link to="/about" className="home-links">
+            {t("nav.about")}
+          </Link>
         )}
         {location.pathname !== "/contact" && (
-          <Link to="/contact" className="home-links">{t("nav.contact")}</Link>
+          <Link to="/contact" className="home-links">
+            {t("nav.contact")}
+          </Link>
         )}
 
         {/* Language Dropdown */}
@@ -32,7 +38,11 @@ function Layout({ children }) {
           id="language"
           onChange={languageChangeHandler}
           value={i18n.language}
-          style={{ position: "absolute", top: "10px", right: "10px" }}
+          style={{
+            position: "absolute",
+            top: "15px",
+            right: "2px",
+          }}
         >
           <option value="eng">Eng</option>
           <option value="geo">GEO</option>
@@ -44,13 +54,15 @@ function Layout({ children }) {
           onClick={switchMode}
           style={{
             position: "absolute",
-            top: "60px",
-            left: "20px",
-            padding: "0.5rem 1rem",
-            backgroundColor: dark ? "#444" : "#f1f1f1",
-            color: dark ? "#fff" : "#000",
+            top: "15px",
+            right: "75px",
+            padding: "0.4rem 0.10rem",
+            backgroundColor: dark ? "#fff" : "#000",
+            color: dark ? "#000" : "#fff",
             borderRadius: "5px",
             cursor: "pointer",
+            fontWeight: "600",
+            fontSize: "0.8rem",
           }}
         >
           {dark ? "Light Mode" : "Dark Mode"}
