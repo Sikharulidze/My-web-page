@@ -13,6 +13,7 @@ function Layout({ children }) {
 
   return (
     <div>
+      
       <div className="home-top">
         <Link to="/" className="home-links">
           {t("nav.home")}
