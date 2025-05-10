@@ -9,8 +9,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./Layout";
-import lightDark from "./store/lightDark";
-import { useEffect } from "react";
+import ThemeManager from "./ThemeManager";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -20,7 +19,6 @@ i18n.use(initReactI18next).init({
   },
   lng: "eng",
   fallbackLng: "eng",
-
   interpolation: {
     escapeValue: false,
   },
@@ -29,23 +27,17 @@ i18n.use(initReactI18next).init({
 function App() {
   useTranslation();
 
-  const dark = lightDark((state) => state.dark);
-  const setDark = lightDark((state) => state.switchMode);
-
-  useEffect(() => {
-    document.body.className = dark ? "dark" : "light";
-  }, [dark]);
-
   return (
-    <Layout toggleTheme={setDark}>
-      <button onClick={setDark}>{dark ? "light" : "dark"}</button>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Layout>
+    <>
+      <ThemeManager />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
