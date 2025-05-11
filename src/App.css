@@ -1,37 +1,29 @@
-/* Global reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* General body styles */
 body {
   font-family: "Quicksand", sans-serif;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode */
 body.light {
-  background-color: white; /* Light background */
-  color: black; /* Dark text color */
+  background-color: white;
+  color: black;
 }
 
-/* Dark mode */
 body.dark {
-  background-color: #121212; /* Dark background */
-  color: white; /* Light text color */
+  background-color: #121212;
+  color: white;
 }
-
-/* Button Styles */
-
 
 button:hover {
   background-color: #ddd;
 }
 
-/* Header section */
 .home-top {
   background-color: white;
   height: 5vh;
@@ -42,21 +34,26 @@ button:hover {
   gap: 3rem;
 }
 
-/* Profile Picture Styles */
 .My-picture {
   width: 100vw;
   height: 70vh;
   display: flex;
   justify-content: center;
-  background-color: #e5e1da; /* Default light background */
+  background-color: #e5e1da;
 }
 
-/* Dark mode styles for profile picture */
+.my-picture2 {
+  border-radius: 50%;
+  width: 300px;
+  position: absolute;
+  top: 30%;
+  right: 25%;
+}
+
 body.dark .My-picture {
-  background-color: #2c2c2c; /* Dark mode background */
+  background-color: #2c2c2c;
 }
 
-/* Bottom section */
 .home-bottom {
   width: 100vw;
   height: 30vh;
@@ -64,51 +61,44 @@ body.dark .My-picture {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #e6e6fa; /* Default light background */
+  background-color: #e6e6fa;
 }
 
-/* Dark mode styles for bottom section */
 body.dark .home-bottom {
-  background-color: #2a2a2a; /* Dark mode background */
+  background-color: #2a2a2a;
 }
 
-/* Text styling */
 .bottom-text {
-  font-family: "Dancing Script", cursive;
+  font-family: "Courier New", Courier, monospace;
   font-style: italic;
-  color: #222831; /* Default light text color */
+  color: #222831;
   font-size: 3.5rem;
   text-align: center;
   margin-right: 80px;
 }
 
-/* Dark mode styles for text */
 body.dark .bottom-text {
-  color: white; /* Light text color in dark mode */
+  color: white;
 }
 
-/* Paragraph styling */
 .bottom-p {
-  color: #939185; /* Default light text color */
-  font-family: "Dancing Script", sans-serif;
+  color: #939185;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2rem;
   text-align: center;
   width: 50%;
 }
 
-/* Dark mode styles for paragraph text */
 body.dark .bottom-p {
-  color: #ccc; /* Light text color in dark mode */
+  color: #ccc;
 }
 
-/* Link styling */
 .home-links {
   color: gray;
   font-size: 20px;
   text-decoration: none;
 }
 
-/* Copyright section */
 .copyright {
   text-align: center;
   margin-top: 20px;
@@ -118,7 +108,6 @@ body.dark .bottom-p {
   opacity: 0.3;
 }
 
-/* Language selector styling */
 #language {
   font-size: 1rem;
   padding: 5px;
@@ -126,4 +115,141 @@ body.dark .bottom-p {
   background-color: #f1f1f1;
   border: 1px solid #ccc;
   cursor: pointer;
+}
+
+.bottom-text.geo-font,
+.bottom-text.rus-font {
+  margin-top: 40px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.bottom-p.geo-font,
+.bottom-p.rus-font {
+  font-family: sans-serif;
+}
+
+/*about page css */
+
+.top-container {
+  background-color: #e4f9f5;
+  position: relative;
+  padding-top: 50px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh;
+}
+
+.top-cloud,
+.bottom-cloud {
+  display: none;
+}
+
+.erti {
+  color: #66bfbf;
+  font-size: 5.625rem;
+  margin: 50px auto 0 auto;
+  font-family: "Sacramento", cursive;
+}
+
+.ori {
+  color: #66bfbf;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.sami {
+  color: #11999e;
+  font-family: "Montserrat", sans-serif;
+}
+
+.middle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 50px;
+}
+
+.intro {
+  width: 30%;
+  margin: auto;
+}
+
+.skill-row {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.code-img {
+  width: 25%;
+  float: left;
+  margin-right: 30px;
+}
+
+.text {
+  line-height: 2;
+}
+
+.donut {
+  width: 25%;
+  float: left;
+}
+
+.xazi {
+  border: dotted #eaf6f6 6px;
+  border-bottom: none;
+  width: 4%;
+  margin: 100px auto;
+}
+
+.contact-message {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #222831;
+  width: 80%; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-me {
+  text-align: center; 
+  width: 100%; 
+  margin-top: 50px;
+}
+
+.meili {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  background: #11cdd4;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.meili:hover {
+  background: #30e3cb;
+  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+  text-decoration: none;
+}
+
+.profile,
+.skills {
+  text-align: center; 
+}
+
+hr {
+  width: 60%; 
+  margin: 20px auto; 
+}
+
+hr.xazi {
+  border: dotted #eaf6f6 6px;
+  width: 50%; 
 }

@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Layout from "./Layout";
 import ThemeManager from "./ThemeManager";
 
+
 i18n.use(initReactI18next).init({
   resources: {
     eng: { translation: language_eng },
