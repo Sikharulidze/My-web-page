@@ -1,6 +1,5 @@
 {
- 
-    "nav": {
+  "nav": {
     "home": "Home",
     "about": "About",
     "contact": "Contact"
@@ -11,7 +10,20 @@
     "description": "I'm Mariam Sikharulidze, a web developer with a focus on {{emphasis}}.",
     "emphasis": "creating clean and functional websites"
   },
-  "copyright": "© {{year}} Mariam Sikharulidze."
+
+  "about": {
+    "title": "I'm Mariami.",
+    "subtitle": "a programmer.",
+    "skills": "My Skills.",
+    "designTitle": "Design & Development",
+    "designDesc": "I started learning to code when I was 25 years old because working from home is comfortable. It is also a progressive and valued field.",
+    "donutTitle": "Donut Challenge",
+    "donutDesc": "But my best skill is actually in eating donuts. I am the undisputed queen of donut-eating challenges. Donuts with Nutella are my favorite.",
+    "contactTitle": "Get In Touch",
+    "contactSubtitle": "If you love donuts as much as I do",
+    "contactDesc": "Love donuts as much as I do? Let's talk about how awesome they are! We can code while we eat donuts!",
+    "contactBtn": "Contact Me"
+  },
+
+   "copyright": "© {{year}} Mariam Sikharulidze."
 }
-
-

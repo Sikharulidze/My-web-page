@@ -9,7 +9,7 @@ function Home() {
   const currentLang = i18n.language;
 
   return (
-    <div>
+    <div className="home-page">
       <div className="My-picture">
         <img src={profilePic} alt="Mariam" />
       </div>
