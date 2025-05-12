@@ -41,7 +41,7 @@ function Layout({ children }) {
           style={{
             position: "absolute",
             top: "15px",
-            right: "2px",
+            right: "8px",
           }}
         >
           <option value="eng">Eng</option>
@@ -55,7 +55,7 @@ function Layout({ children }) {
           style={{
             position: "absolute",
             top: "15px",
-            right: "75px",
+            right: "78px",
             padding: "0.4rem 0.10rem",
             backgroundColor: dark ? "#fff" : "#000",
             color: dark ? "#000" : "#fff",
@@ -63,6 +63,8 @@ function Layout({ children }) {
             cursor: "pointer",
             fontWeight: "600",
             fontSize: "0.8rem",
+            
+            
           }}
         >
           {dark ? "Light Mode" : "Dark Mode"}
