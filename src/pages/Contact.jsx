@@ -2,8 +2,8 @@ import React from "react";
 import profileImg from "../images/profile.png";
 
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
   return (
@@ -24,7 +24,10 @@ function Contact() {
         <h2>Contact Details</h2>
         <div className="contact-info">
           <div className="contact-item">
-            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "10px" }} />
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              style={{ marginRight: "10px" }}
+            />
             <p className="contact-p">Mariam.sikha.22@gmail.com</p>
           </div>
           <div className="contact-item">
@@ -36,19 +39,44 @@ function Contact() {
             <p className="contact-p"> Tbilisi, Georgia</p>
           </div>
         </div>
-        
-        <h2 className="education-header">Education</h2>
-        <div className="education-container">
-          <div className="education-dot-line">
-            <div className="dot"></div>
-            <div className="line"></div>
-          </div>
-          <p className="contact-p">Bachelor of Law - Caucasus International University</p>
-           <p className="contact-p">Master's degree in law - Caucasus International University</p>
 
-        
-        
+        <h2>Education</h2>
+        <div className="education-container">
+          <div className="education-content">
+            <div className="education-dot-line">
+              <div className="dot"></div>
+              <div className="line"></div>
+            </div>
+            <div className="education-text">
+              <p className="contact-p">
+                Bachelor of Law - Caucasus International University
+              </p>
+              <p className="education-date">2017-2021</p>
+              <p className="contact-p">
+                Master's degree in law - Caucasus International University
+              </p>
+              <p className="education-date">2021-2024</p>
+            </div>
+          </div>
         </div>
+
+        <h2>Skills</h2>
+
+          
+          <ul  className="contact-ul">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Bootstrap</li>
+            <li>Jquery</li>
+            <li>Node.js</li>
+            <li>EJS</li>
+
+            </ul>
+      
+
+
       </div>
     </div>
   );
