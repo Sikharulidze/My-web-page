@@ -27,8 +27,8 @@ function Layout({ children }) {
           </Link>
         )}
         {location.pathname !== "/contact" && (
-          <Link to="/contact" className="home-links">
-            {t("nav.contact")}
+          <Link to="/bio" className="home-links">
+            {t("nav.bio")}
           </Link>
         )}
 

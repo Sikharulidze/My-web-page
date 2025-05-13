@@ -7,10 +7,10 @@ import language_eng from "./locales/eng.json";
 import language_rus from "./locales/rus.json";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Bio from "./pages/Bio";
 import Contact from "./pages/Contact";
 import Layout from "./Layout";
 import ThemeManager from "./ThemeManager";
-
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -35,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/bio" element={<Bio />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

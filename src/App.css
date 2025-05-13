@@ -166,6 +166,8 @@ body.dark .top-container {
   padding-bottom: 40px;
 }
 
+
+
 .sami {
   font-size: 2rem;
   font-weight: 600;
@@ -286,6 +288,7 @@ hr.xazi {
   display: flex;
   justify-content: space-between;
   gap: 200px;
+  margin-top: 40px;
 }
 
 .proggraming-img {
@@ -512,3 +515,83 @@ color: black;
   
 }
 
+.social-icon {
+  color: #000; 
+}
+
+body.dark .social-icon {
+  color: #000; 
+  }
+
+
+/*  for contact post page*/
+
+
+.contact-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+  padding-top: 100px;
+}
+
+.contact-page-wrapper .post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.post-creation {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  
+}
+
+.post-creation h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.post-creation form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-creation input,
+.post-creation textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 95%;
+  resize: none; 
+}
+
+.post-creation button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 125px;
+  max-height: unset;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-creation button:hover {
+  background-color: #0056b3;
+}
