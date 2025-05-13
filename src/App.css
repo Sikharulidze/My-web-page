@@ -373,6 +373,13 @@ hr.xazi {
   width: 50%;
   margin: 0 auto;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-right-container {
+  display: flex; 
+  width: 100%;
 }
 
 .left-div {
@@ -381,18 +388,25 @@ hr.xazi {
   padding: 0.4rem;
 }
 
+.right-div{
+  width: 60%;
+  padding: 0.4rem;
+  background-color: whitesmoke;
+
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
   gap: 10px;
-
 }
 
 .contact-item i,
@@ -401,7 +415,6 @@ hr.xazi {
   border-radius: 50%;
   padding: 10px;
   color: whitesmoke;
-  font-size: 20px;
   margin-right: 10px;
 }
 
@@ -414,6 +427,18 @@ hr.xazi {
 h2 {
   color: black;
   font-weight: bold;
+  border-bottom: 2px solid gray;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+h3{
+color: black;
+  font-weight: bold;
+  border-bottom: 2px solid gray;
+  
+  margin-top: 18px;
+  font-size: 1.6rem;
+  margin-left: 10px;
 }
 
 .contact-p {
@@ -422,6 +447,11 @@ h2 {
   display: flex;
 }
 
+.right-p{
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  font-size: 1.3rem;
+  color:#222831 !important;
+  } 
 
 .education-container {
   margin-bottom: 15px;
@@ -445,7 +475,7 @@ h2 {
 
 .line {
   width: 1px;
-  height: 160px;
+  height: 90px;
   background-color: black;
 }
 
@@ -460,15 +490,25 @@ h2 {
   color: #444;
 }
 
-.contact-ul{
-   list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 30px;
-  font-size: 1.1rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.contact-ul {
+  list-style-type: disc;
+  margin-top: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
 }
 
 .contact-ul li {
   margin-bottom: 10px;
   color: #222831;
 }
+
+.contact-ul + h2 {
+  margin-top: 40px;
+}
+
+.social-container {
+  display: flex;
+  align-items: center;
+  
+}
+
