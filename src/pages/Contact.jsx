@@ -1,59 +1,105 @@
 import React, { useState } from "react";
 import axios from "axios";
+import lightDark from "../store/lightDark";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const dark = lightDark((state) => state.dark);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [posts, setPosts] = useState([]);
   const [showPosts, setShowPosts] = useState(false);
 
-  // Function to handle form submission and create post
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const postData = { title, content };
 
     try {
-      // Post request to create a new post
       await axios.post("http://localhost:5000/api/posts", postData);
-      alert("Post created successfully!");
-      setTitle(""); // Clear title
-      setContent(""); // Clear content
+      alert(t("contact.postCreation.success"));
+      setTitle("");
+      setContent("");
     } catch (error) {
       console.error("Error creating post", error);
-      alert("Error creating post");
+      alert(t("contact.postCreation.error"));
     }
   };
 
-  // Fetch posts when button is clicked
   const fetchPosts = async () => {
     try {
-      // Get all posts from the API
-      const response = await axios.get("http://localhost:5000/api/posts");
-      setPosts(response.data);
-      setShowPosts(true); // Show the posts after fetching
+      if (!showPosts) {
+        const response = await axios.get("http://localhost:5000/api/posts");
+        setPosts(response.data);
+      }
+      setShowPosts((prevState) => !prevState);
     } catch (error) {
       console.error("Error fetching posts", error);
-      alert("Error loading posts");
+      alert(t("contact.postFetch.error"));
+    }
+  };
+
+  const deletePost = async (postId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
+      alert(t("contact.postDelete.success"));
+      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+    } catch (error) {
+      console.error("Error deleting post", error);
+      alert(t("contact.postDelete.error"));
     }
   };
 
   return (
-    <div className="contact-page-wrapper">
-      <div className="post-container">
-        {/* Create post form */}
-        <div className="post-creation">
-          <h2>Create New Post</h2>
+    <div
+      className="contact-page-wrapper"
+      style={{
+        backgroundColor: dark ? "#000" : "#fff",
+        color: dark ? "#fff" : "#000",
+        minHeight: "100vh",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+      }}
+    >
+      <div
+        className="post-container"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <div
+          className="post-creation"
+          style={{
+            width: "80%",
+            maxWidth: "570px",
+            border: "1px solid black",
+          }}
+        >
+          <h2>{t("contact.createPost")}</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Title"
+              placeholder={t("contact.titlePlaceholder")}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+              style={{
+                width: "100%",
+                padding: "8px",
+                backgroundColor: "#fff",
+                color: "#000",
+                border: "1px solid #3C3D37",
+              }}
             />
             <textarea
-              placeholder="Content"
+              placeholder={t("contact.contentPlaceholder")}
               value={content}
               onChange={(e) => setContent(e.target.value)}
               style={{
@@ -61,44 +107,85 @@ const Contact = () => {
                 padding: "8px",
                 height: "100px",
                 marginBottom: "10px",
+                backgroundColor: "#fff",
+                color: "#000",
+                border: "1px solid #3C3D37",
               }}
             />
             <button type="submit" style={{ padding: "10px 15px" }}>
-              Create Post
+              {t("contact.createPostButton")}
             </button>
           </form>
 
-          {/* Button to fetch and display posts */}
           <button
             onClick={fetchPosts}
             style={{ marginTop: "10px", padding: "10px 15px" }}
           >
-            See All Posts
+            {showPosts
+              ? t("contact.collapsePosts")
+              : t("contact.viewAllPosts")}
           </button>
         </div>
 
-        {/* Display all posts */}
         {showPosts && (
-          <div className="all-posts" style={{ marginTop: "20px" }}>
-            <h3>All Posts</h3>
+          <div
+            className="all-posts"
+            style={{
+              marginTop: "20px",
+              width: "80%",
+              maxWidth: "600px",
+              marginBottom: "30px",
+            }}
+          >
+            <h3 style={{ color: dark ? "#fff" : "#000" }}>
+              {t("contact.allPosts")}
+            </h3>
             {posts.length === 0 ? (
-              <p>No posts found.</p>
+              <p>{t("contact.noPosts")}</p>
             ) : (
               posts.map((post) => (
                 <div
                   key={post.id}
                   className="post-card"
                   style={{
-                    border: "1px solid #ccc",
+                    border: "1px solid black",
                     padding: "10px",
                     marginBottom: "10px",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    backgroundColor: dark ? "#111" : "#f9f9f9",
+                    color: dark ? "#fff" : "#000",
                   }}
                 >
-                  <h4>{post.title}</h4>
+                  <h4 style={{ color: dark ? "#fff" : "#000" }}>
+                    {post.title}
+                  </h4>
                   <p>{post.content}</p>
                   <small>
-                    Created at: {new Date(post.created_at).toLocaleString()}
+                    {t("contact.createdAt", {
+                      date: new Date(post.created_at).toLocaleString(),
+                    })}
                   </small>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <button
+                      onClick={() => deletePost(post.id)}
+                      style={{
+                        padding: "5px 10px",
+                        backgroundColor: "#CF0A0A",
+                        color: "white",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {t("contact.deletePostButton")}
+                    </button>
+                  </div>
                 </div>
               ))
             )}

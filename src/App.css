@@ -542,6 +542,7 @@ body.dark .social-icon {
   justify-content: center;
   align-items: center;
   width: 100%;
+  
 }
 
 .post-creation {
@@ -552,6 +553,7 @@ body.dark .social-icon {
   width: 100%;
   max-width: 600px;
   text-align: left;
+  margin-top: 30px;
   
 }
 
@@ -595,3 +597,5 @@ body.dark .social-icon {
 .post-creation button:hover {
   background-color: #0056b3;
 }
+
+

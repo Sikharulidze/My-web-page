@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",                       
-    "dev": "concurrently \"npm run server\" \"npm run start\"",  
-    "build": "vite build",                 
-    "lint": "eslint .",                  
-    "preview": "vite preview",            
-    "server": "cd server && npm run dev"   
+    "start": "vite",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "server": "cd server && npm run dev"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",

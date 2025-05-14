@@ -50,6 +50,31 @@ app.get("/api/posts", async (req, res) => {
   }
 });
 
+// DELETE - Delete a specific post
+app.delete("/api/posts/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Check if the post exists
+    const result = await pool.query(
+      "SELECT * FROM public.posts WHERE id = $1",
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+    // Proceed to delete the post
+    await pool.query("DELETE FROM public.posts WHERE id = $1", [id]);
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (err) {
+    console.error("Delete error:", err);
+    res.status(500).json({ error: "Error deleting post" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`✅ Server is running on http://localhost:${port}`);
 });
