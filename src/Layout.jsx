@@ -15,8 +15,6 @@ function Layout({ children }) {
   const dark = lightDark((state) => state.dark);
   const switchMode = lightDark((state) => state.switchMode);
 
-  const location = useLocation(); // <-- Added this
-
   const normalizeLang = (lng) => {
     if (!lng) return "eng";
     if (lng.startsWith("en")) return "eng";
@@ -32,7 +30,6 @@ function Layout({ children }) {
       setCurrentLang(normalizeLang(lng));
     };
     i18n.on("languageChanged", onLanguageChanged);
-
     return () => {
       i18n.off("languageChanged", onLanguageChanged);
     };
@@ -44,17 +41,11 @@ function Layout({ children }) {
     setCurrentLang(selectedLang);
   };
 
-  const getFlagIcon = (lang) => {
-    switch (lang) {
-      case "eng":
-        return gbFlag;
-      case "geo":
-        return geFlag;
-      case "rus":
-        return ruFlag;
-      default:
-        return gbFlag;
-    }
+  // Map lang to flag image URL (imported)
+  const flagMap = {
+    eng: gbFlag,
+    geo: geFlag,
+    rus: ruFlag,
   };
 
   return (
@@ -68,7 +59,6 @@ function Layout({ children }) {
         >
           {t("nav.home")}
         </NavLink>
-
         <NavLink
           to="/about"
           className={({ isActive }) =>
@@ -77,7 +67,6 @@ function Layout({ children }) {
         >
           {t("nav.about")}
         </NavLink>
-
         <NavLink
           to="/bio"
           className={({ isActive }) =>
@@ -86,8 +75,6 @@ function Layout({ children }) {
         >
           {t("nav.bio")}
         </NavLink>
-
-        {/* Show Community link always */}
         <NavLink
           to="/community"
           className={({ isActive }) =>
@@ -97,41 +84,43 @@ function Layout({ children }) {
           {t("nav.community")}
         </NavLink>
 
-        {/* Language Flag */}
-        <img
-          src={getFlagIcon(currentLang)}
-          alt={`${currentLang} flag`}
-          style={{
-            position: "absolute",
-            top: 12,
-            right: 60,
-            width: 24,
-            height: 16,
-            objectFit: "cover",
-            borderRadius: 2,
-            pointerEvents: "none",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Language Dropdown */}
+        {/* Language Select */}
         <select
           name="language"
           id="language"
           onChange={languageChangeHandler}
           value={currentLang}
+          aria-label="Select language"
           style={{
             position: "absolute",
             top: 10,
             right: 8,
-            paddingRight: 30,
+            width: 70,
+            height: 30,
             cursor: "pointer",
+            paddingRight: 0,
+            paddingLeft: 0,
+            fontSize: 0,
+            backgroundImage: `url(${flagMap[currentLang]})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+            backgroundSize: "24px 16px",
+            borderRadius: 4,
+            border: "1px solid #ccc",
+            appearance: "none",
+            WebkitAppearance: "none",
+            MozAppearance: "none",
           }}
-          aria-label="Select language"
         >
-          <option value="eng">Eng</option>
-          <option value="geo">GEO</option>
-          <option value="rus">RUS</option>
+          <option value="eng" style={{ fontSize: "14px" }}>
+            ENG
+          </option>
+          <option value="geo" style={{ fontSize: "14px" }}>
+            GEO
+          </option>
+          <option value="rus" style={{ fontSize: "14px" }}>
+            RUS
+          </option>
         </select>
 
         {/* Dark Mode Button */}
