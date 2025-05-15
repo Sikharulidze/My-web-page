@@ -236,6 +236,11 @@ body.dark .top-container {
   margin-right: auto;
 }
 
+.dark .contact-message {
+  color: white;
+}
+
+
 .contact-me {
   text-align: center;
   width: 100%;
@@ -533,7 +538,6 @@ body.dark .social-icon {
   align-items:flex-start;
   height: 100vh;
   margin: 0;
-  background-color: #f4f4f4;
   padding-top: 100px;
 }
 

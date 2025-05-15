@@ -53,66 +53,60 @@
     "postDelete": {
       "success": "Post deleted successfully!",
       "error": "Error deleting post"
+    }
     },
+
+  
+  "bio": {
+    "name": "Mariam Sikharulidze",
+    "title": "Web Developer",
+    "contactDetails": "Contact Details",
+    "education": {
+      "title": "Education",
+      "bachelor": "Bachelor of Law - Caucasus International University",
+      "master": "Master's degree in Law - Caucasus International University"
+    },
+    "skills": {
+      "techTitle": "Technical Skills",
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JavaScript",
+      "react": "React",
+      "bootstrap": "Bootstrap",
+      "jquery": "Jquery",
+      "node": "Node.js",
+      "ejs": "EJS",
+      "softTitle": "Soft Skills"
+    },
+    "softSkills": {
+      "learnability": "High learnability",
+      "detail": "Attention to detail",
+      "flexibility": "Flexibility",
+      "problemSolving": "Problem solving",
+      "curiosity": "Curiosity",
+      "helping": "Interest in helping others"
+    },
+    "summary": {
+      "title": "Summary",
+      "1": "I am passionate about web development, eager to work with cutting-edge technologies like React, Node.js, and other modern frameworks to build impactful applications.",
+      "2": "Constantly striving to enhance my skills by exploring new tools and technologies, with a focus on delivering efficient and scalable solutions.",
+      "3": "Excited to collaborate with innovative teams that embrace agile methodologies and encourage continuous learning and growth in the tech industry.",
+      "4": "Open to challenges that require adaptability and a willingness to learn new programming languages and development frameworks to stay ahead of industry trends. Motivated by opportunities to work on diverse projects and eager to contribute to teams building high-quality, user-friendly applications.",
+      "5": "Looking for opportunities to join a forward-thinking company where I can apply my current skills and learn from experienced developers in a collaborative environment. Passionate about problem-solving and excited to take on projects that allow me to expand my knowledge of full-stack development and new technologies.",
+      "6": "Focused on delivering optimal user experiences through modern, responsive web design and a strong understanding of both front-end and back-end technologies."
+    }
+  }
+}
+
+
+
+
+
 
 
   
-  "name": "Mariam Sikharulidze",
-  "role": "Web Developer",
-  "contactDetails": "Contact Details",
-  "phoneLabel": "Phone",
-  "locationLabel": "Location",
-  "education": "Education",
-  "bachelor": "Bachelor of Law - Caucasus International University",
-  "master": "Master's degree in law - Caucasus International University",
-  "skills": "Skills",
-  "softSkills": "Soft Skills",
-  "learnability": "High learnability",
-  "attentionToDetail": "Attention to detail",
-  "flexibility": "Flexibility",
-  "problemSolving": "Problem solving",
-  "curiosity": "Curiosity",
-  "helpingOthers": "Interest in helping others",
-  "summary": "Summary",
-  "summaryText1": "I am passionate about web development...",
-  "summaryText2": "Constantly striving to enhance my skills...",
-  "summaryText3": "Excited to collaborate with innovative teams...",
-  "summaryText4": "Open to challenges...",
-  "summaryText5": "Focused on delivering optimal user experiences...",
-  "profileAlt": "Mariam Sikharulidze",
-  "githubLabel": "GitHub.com/Sikharulidze",
-  "linkedinLabel": "LinkedIn.com/mariami",
-  "instagramLabel": "Instagram.com/sikharulidzemariamii",
-  "facebookLabel": "Facebook.com/mariam.sikharulidze.73"
-},
+  
 
-
-
-  "bio": {
-    "name": "Mariam Sikharulidze",
-    "jobTitle": "Web Developer",
-    "contactDetails": "Contact Details",
-    "education": "Education",
-    "skills": "Skills",
-    "softSkills": "Soft Skills",
-    "summary": "Summary",
-    "bachelor": "Bachelor of Law",
-    "master": "Master's degree in law",
-    "softSkill1": "High learnability",
-    "softSkill2": "Attention to detail",
-    "softSkill3": "Flexibility",
-    "softSkill4": "Problem solving",
-    "softSkill5": "Curiosity",
-    "softSkill6": "Interest in helping others",
-    "summaryText1": " I am Passionate about web development, eager to work with cutting-edge technologies like React, Node.js, and other modern frameworks to build impactful applications.",
-    "summaryText2": " Constantly striving to enhance my skills by exploring new tools and technologies, with a focus on delivering efficient and scalable solutions.",
-    "summaryText3": "Excited to collaborate with innovative teams that embrace agile methodologies and encourage continuous learning and growth in the tech industry.",
-    "summaryText4": " Open to challenges that require adaptability and a willingness to learn new programming languages and development frameworks to stay ahead of industry trends. Motivated by opportunities to work on diverse projects and eager to contribute to teams building high-quality, user-friendly applications.",
-    "summaryText5": "Looking for opportunities to join a forward-thinking company where I can apply my current skills and learn from experienced developers in a collaborative environment. Passionate about problem-solving and excited to take on projects that allow me to expand my knowledge of full-stack development and new technologies.",
-    "summaryText6": " Focused on delivering optimal user experiences through modern, responsive web design and a strong understanding of both front-end and back-end technologies.",
-    "profileAlt": "Mariam Sikharulidze"
-  }
-}
 
 
   

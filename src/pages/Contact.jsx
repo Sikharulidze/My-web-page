@@ -3,6 +3,8 @@ import axios from "axios";
 import lightDark from "../store/lightDark";
 import { useTranslation } from "react-i18next";
 
+
+
 const Contact = () => {
   const { t } = useTranslation();
   const dark = lightDark((state) => state.dark);
@@ -56,7 +58,7 @@ const Contact = () => {
     <div
       className="contact-page-wrapper"
       style={{
-        backgroundColor: dark ? "#000" : "#fff",
+        backgroundColor: dark ? "#000" : "#DFD0B8",
         color: dark ? "#fff" : "#000",
         minHeight: "100vh",
         padding: "20px",
@@ -75,6 +77,7 @@ const Contact = () => {
           width: "100%",
         }}
       >
+        
         <div
           className="post-creation"
           style={{
@@ -153,11 +156,11 @@ const Contact = () => {
                     marginBottom: "10px",
                     width: "100%",
                     boxSizing: "border-box",
-                    backgroundColor: dark ? "#111" : "#f9f9f9",
-                    color: dark ? "#fff" : "#000",
+                    backgroundColor: dark ? "white" : "#f9f9f9",
+                    color: dark ? "#000" : "#000",
                   }}
                 >
-                  <h4 style={{ color: dark ? "#fff" : "#000" }}>
+                  <h4 style={{ color: dark ? "#000" : "#000" }}>
                     {post.title}
                   </h4>
                   <p>{post.content}</p>

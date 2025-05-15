@@ -1,11 +1,17 @@
 import React from "react";
 import profileImg from "../images/profile.png";
-import { FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaFacebook, FaGithub } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 
-
+import {
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaGithub,
+} from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ContactItem = ({ Icon, info }) => (
   <div className="contact-item">
@@ -16,7 +22,6 @@ const ContactItem = ({ Icon, info }) => (
 
 function Bio() {
   const { t } = useTranslation();
-
   const socialLinks = [
     {
       Icon: FaGithub,
@@ -43,35 +48,58 @@ function Bio() {
   return (
     <div className="contact-page-container">
       <div className="first-div">
-        <img src={profileImg} alt="Profile picture" className="profile-img" />
+        <img
+          src={profileImg}
+          alt="Mariam Sikharulidze"
+          className="profile-img"
+        />
         <div className="first-div-text">
-          <h1>{t("bio.name")}</h1>
-          <p>{t("bio.jobTitle")}</p>
+           <h1>{t("bio.name")}</h1>
+          <p>{t("bio.title")}</p>
         </div>
       </div>
 
       <div className="left-right-container">
         <div className="left-div">
-          <h2>{t("bio.contactDetails")}</h2>
+           <h2>{t("bio.contactDetails")}</h2>
           <div className="contact-info">
+          
             <div className="contact-item">
-              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "10px", fontSize: "15px" }} />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                style={{ marginRight: "10px", fontSize: "15px" }} // Custom styling for the email icon
+              />
               <p className="contact-p">Mariam.sikha.22@gmail.com</p>
             </div>
-            <ContactItem Icon={FaPhoneAlt} info="+995 593 41 55 88" />
-            <ContactItem Icon={FaMapMarkerAlt} info="Tbilisi, Georgia" />
+
+           
+            <ContactItem
+              Icon={FaPhoneAlt}
+              label="Phone"
+              info="+995 593 41 55 88"
+            />
+            <ContactItem
+              Icon={FaMapMarkerAlt}
+              label="Location"
+              info={t("bio.locationInfo")}
+            />
 
             {socialLinks.map(({ Icon, label, url }) => (
               <div className="social-container" key={label}>
                 <Icon size={32} style={{ marginRight: "30px", marginTop: "15px" }} className="social-icon" />
-                <a href={url} target="_blank" rel="noopener noreferrer" className="contact-link">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link"
+                >
                   {label}
                 </a>
               </div>
             ))}
           </div>
 
-          <h2>{t("bio.education")}</h2>
+          <h2>{t("bio.education.title")}</h2>
           <div className="education-container">
             <div className="education-content">
               <div className="education-dot-line">
@@ -80,16 +108,18 @@ function Bio() {
               </div>
               <div className="education-text">
                 <p className="contact-p">
-                  {t("bio.bachelor")} - Caucasus International University
+                  {t("bio.education.bachelor")}
                 </p>
+
                 <p className="contact-p">
-                  {t("bio.master")} - Caucasus International University
+                 {t("bio.education.master")}
                 </p>
               </div>
             </div>
           </div>
 
-          <h2>{t("bio.skills")}</h2>
+          <h2>{t("bio.skills.techTitle")}</h2>
+
           <ul className="contact-ul">
             <li>HTML</li>
             <li>CSS</li>
@@ -101,25 +131,25 @@ function Bio() {
             <li>EJS</li>
           </ul>
 
-          <h2>{t("bio.softSkills")}</h2>
+           <h2>{t("bio.skills.softTitle")}</h2>
+
           <ul className="contact-ul">
-            <li>{t("bio.softSkill1")}</li>
-            <li>{t("bio.softSkill2")}</li>
-            <li>{t("bio.softSkill3")}</li>
-            <li>{t("bio.softSkill4")}</li>
-            <li>{t("bio.softSkill5")}</li>
-            <li>{t("bio.softSkill6")}</li>
+             <li>{t("bio.softSkills.learnability")}</li>
+            <li>{t("bio.softSkills.detail")}</li>
+            <li>{t("bio.softSkills.flexibility")}</li>
+            <li>{t("bio.softSkills.problemSolving")}</li>
+            <li>{t("bio.softSkills.curiosity")}</li>
+            <li>{t("bio.softSkills.helping")}</li>
           </ul>
         </div>
 
         <div className="right-div">
-          <h3>{t("bio.summary")}</h3>
-          <p className="right-p">{t("bio.summaryText1")}</p>
-          <p className="right-p">{t("bio.summaryText2")}</p>
-          <p className="right-p">{t("bio.summaryText3")}</p>
-          <p className="right-p">{t("bio.summaryText4")}</p>
-          <p className="right-p">{t("bio.summaryText5")}</p>
-          <p className="right-p">{t("bio.summaryText6")}</p>
+         <h3>{t("bio.summary.title")}</h3>
+           {["1", "2", "3", "4", "5", "6"].map(key => (
+            <p className="right-p" key={key}>
+              {t(`bio.summary.${key}`)}
+            </p>
+          ))}
         </div>
       </div>
     </div>
