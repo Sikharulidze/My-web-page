@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "contact": "Contact",
+    "community": "Community",
     "bio": "Bio"
 
   },
@@ -24,7 +24,7 @@
     "contactTitle": "Get In Touch",
     "contactSubtitle": "If you love donuts as much as I do",
     "contactDesc": "Love donuts as much as I do? Let's talk about how awesome they are! We can code while we eat donuts!",
-    "contactBtn": "Contact Me"
+    "contactBtn": "Join the forum"
   },
 
    "copyright": "© {{year}} Mariam Sikharulidze.",
@@ -32,8 +32,8 @@
 
 
     
-  "contact": {
-    "createPost": "Create New Post",
+  "community": {
+    
     "titlePlaceholder": "Title",
     "contentPlaceholder": "Content",
     "createPostButton": "Create Post",

@@ -8,7 +8,7 @@ import language_rus from "./locales/rus.json";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Bio from "./pages/Bio";
-import Contact from "./pages/Contact";
+import Community from "./pages/Community";
 import Layout from "./Layout";
 import ThemeManager from "./ThemeManager";
 
@@ -36,7 +36,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/bio" element={<Bio />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/community" element={<Community />} />
         </Routes>
       </Layout>
     </>

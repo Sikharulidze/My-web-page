@@ -75,7 +75,7 @@ function About() {
           <h2 className="otxi">{t("about.contactTitle")}</h2>
           <h3 className="sami">{t("about.contactSubtitle")}</h3>
           <p className="contact-message">{t("about.contactDesc")}</p>
-          <Link to="/contact" className="meili">
+          <Link to="/community" className="meili">
             {" "}
             {t("about.contactBtn")}
           </Link>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; 
+import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import lightDark from "./store/lightDark";
@@ -15,7 +15,8 @@ function Layout({ children }) {
   const dark = lightDark((state) => state.dark);
   const switchMode = lightDark((state) => state.switchMode);
 
-  
+  const location = useLocation(); // <-- Added this
+
   const normalizeLang = (lng) => {
     if (!lng) return "eng";
     if (lng.startsWith("en")) return "eng";
@@ -24,7 +25,6 @@ function Layout({ children }) {
     return "eng";
   };
 
-  
   const [currentLang, setCurrentLang] = useState(normalizeLang(i18n.language));
 
   useEffect(() => {
@@ -62,23 +62,39 @@ function Layout({ children }) {
       <div className="home-top" style={{ position: "relative" }}>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "home-links active" : "home-links")}
+          className={({ isActive }) =>
+            isActive ? "home-links active" : "home-links"
+          }
         >
           {t("nav.home")}
         </NavLink>
 
         <NavLink
           to="/about"
-          className={({ isActive }) => (isActive ? "home-links active" : "home-links")}
+          className={({ isActive }) =>
+            isActive ? "home-links active" : "home-links"
+          }
         >
           {t("nav.about")}
         </NavLink>
 
         <NavLink
           to="/bio"
-          className={({ isActive }) => (isActive ? "home-links active" : "home-links")}
+          className={({ isActive }) =>
+            isActive ? "home-links active" : "home-links"
+          }
         >
           {t("nav.bio")}
+        </NavLink>
+
+        {/* Show Community link always */}
+        <NavLink
+          to="/community"
+          className={({ isActive }) =>
+            isActive ? "home-links active" : "home-links"
+          }
+        >
+          {t("nav.community")}
         </NavLink>
 
         {/* Language Flag */}

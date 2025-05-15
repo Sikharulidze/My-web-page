@@ -3,9 +3,7 @@ import axios from "axios";
 import lightDark from "../store/lightDark";
 import { useTranslation } from "react-i18next";
 
-
-
-const Contact = () => {
+const Community = () => {
   const { t } = useTranslation();
   const dark = lightDark((state) => state.dark);
 
@@ -21,12 +19,12 @@ const Contact = () => {
 
     try {
       await axios.post("http://localhost:5000/api/posts", postData);
-      alert(t("contact.postCreation.success"));
+      alert(t("community.postCreation.success"));
       setTitle("");
       setContent("");
     } catch (error) {
       console.error("Error creating post", error);
-      alert(t("contact.postCreation.error"));
+      alert(t("community.postCreation.error"));
     }
   };
 
@@ -39,24 +37,24 @@ const Contact = () => {
       setShowPosts((prevState) => !prevState);
     } catch (error) {
       console.error("Error fetching posts", error);
-      alert(t("contact.postFetch.error"));
+      alert(t("community.postFetch.error"));
     }
   };
 
   const deletePost = async (postId) => {
     try {
       await axios.delete(`http://localhost:5000/api/posts/${postId}`);
-      alert(t("contact.postDelete.success"));
+      alert(t("community.postDelete.success"));
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
     } catch (error) {
       console.error("Error deleting post", error);
-      alert(t("contact.postDelete.error"));
+      alert(t("community.postDelete.error"));
     }
   };
 
   return (
     <div
-      className="contact-page-wrapper"
+      className="community-page-wrapper"
       style={{
         backgroundColor: dark ? "#000" : "#DFD0B8",
         color: dark ? "#fff" : "#000",
@@ -77,7 +75,6 @@ const Contact = () => {
           width: "100%",
         }}
       >
-        
         <div
           className="post-creation"
           style={{
@@ -86,15 +83,14 @@ const Contact = () => {
             border: "1px solid black",
           }}
         >
-          <h2>{t("contact.createPost")}</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder={t("contact.titlePlaceholder")}
+              placeholder={t("community.titlePlaceholder")}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               style={{
-                width: "100%",
+                width: "98%",
                 padding: "8px",
                 backgroundColor: "#fff",
                 color: "#000",
@@ -102,11 +98,11 @@ const Contact = () => {
               }}
             />
             <textarea
-              placeholder={t("contact.contentPlaceholder")}
+              placeholder={t("community.contentPlaceholder")}
               value={content}
               onChange={(e) => setContent(e.target.value)}
               style={{
-                width: "100%",
+                width: "98%",
                 padding: "8px",
                 height: "100px",
                 marginBottom: "10px",
@@ -115,8 +111,8 @@ const Contact = () => {
                 border: "1px solid #3C3D37",
               }}
             />
-            <button type="submit" style={{ padding: "10px 15px" }}>
-              {t("contact.createPostButton")}
+            <button type="submit" style={{ padding: "10px 15px", backgroundColor: "#e07a5f", color: "#fff", border: "none", cursor: "pointer" }}>
+              {t("community.createPostButton")}
             </button>
           </form>
 
@@ -124,9 +120,7 @@ const Contact = () => {
             onClick={fetchPosts}
             style={{ marginTop: "10px", padding: "10px 15px" }}
           >
-            {showPosts
-              ? t("contact.collapsePosts")
-              : t("contact.viewAllPosts")}
+            {showPosts ? t("community.collapsePosts") : t("community.viewAllPosts")}
           </button>
         </div>
 
@@ -140,11 +134,17 @@ const Contact = () => {
               marginBottom: "30px",
             }}
           >
-            <h3 style={{ color: dark ? "#fff" : "#000" }}>
-              {t("contact.allPosts")}
+            <h3
+              style={{
+                color: dark ? "#fff" : "#000",
+                display: "inline-block",
+                borderBottom: `2px  ${dark ? "#fff" : "#000"}`,
+              }}
+            >
+              {t("community.allPosts")}
             </h3>
             {posts.length === 0 ? (
-              <p>{t("contact.noPosts")}</p>
+              <p>{t("community.noPosts")}</p>
             ) : (
               posts.map((post) => (
                 <div
@@ -156,8 +156,9 @@ const Contact = () => {
                     marginBottom: "10px",
                     width: "100%",
                     boxSizing: "border-box",
-                    backgroundColor: dark ? "white" : "#f9f9f9",
+                    backgroundColor: dark ? "#F7E9E1" : "#F7E9E1",
                     color: dark ? "#000" : "#000",
+                    borderRadius: "10px",
                   }}
                 >
                   <h4 style={{ color: dark ? "#000" : "#000" }}>
@@ -165,7 +166,7 @@ const Contact = () => {
                   </h4>
                   <p>{post.content}</p>
                   <small>
-                    {t("contact.createdAt", {
+                    {t("community.createdAt", {
                       date: new Date(post.created_at).toLocaleString(),
                     })}
                   </small>
@@ -185,8 +186,14 @@ const Contact = () => {
                         border: "none",
                         cursor: "pointer",
                       }}
+                      onMouseEnter={(e) =>
+                        (e.target.style.backgroundColor = "#A30808")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.target.style.backgroundColor = "#CF0A0A")
+                      }
                     >
-                      {t("contact.deletePostButton")}
+                      {t("community.deletePostButton")}
                     </button>
                   </div>
                 </div>
@@ -199,4 +206,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Community;
