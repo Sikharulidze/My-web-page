@@ -72,7 +72,7 @@ function About() {
         <hr className="xazi" />
 
         <div className="contact-me">
-          <h2 className="ori">{t("about.contactTitle")}</h2>
+          <h2 className="otxi">{t("about.contactTitle")}</h2>
           <h3 className="sami">{t("about.contactSubtitle")}</h3>
           <p className="contact-message">{t("about.contactDesc")}</p>
           <Link to="/contact" className="meili">

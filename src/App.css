@@ -1,7 +1,11 @@
 body {
+  overflow-x: hidden;
   font-family: "Quicksand", sans-serif;
-  min-height: 100vh;
+  height: 100%;
   transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body.light {
@@ -12,6 +16,10 @@ body.light {
 body.dark {
   background-color: #121212;
   color: white;
+}
+
+body.dark .copyright {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 button:hover {
@@ -26,7 +34,7 @@ button:hover {
 
 .home-top {
   background-color: white;
-  height: 4vh;
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -35,8 +43,8 @@ button:hover {
 }
 
 .My-picture {
-  width: 100vw;
-  height: 70vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   background-color: #e5e1da;
@@ -55,7 +63,7 @@ body.dark .My-picture {
 }
 
 .home-bottom {
-  width: 100vw;
+  width: 100%;
   height: 30vh;
   display: flex;
   justify-content: center;
@@ -100,6 +108,11 @@ body.dark .bottom-p {
   font-weight: 600;
 }
 
+.home-links.active {
+  color: #f39c12;
+  font-weight: bold;
+}
+
 .copyright {
   text-align: center;
   margin-top: 20px;
@@ -132,7 +145,7 @@ body.dark .bottom-p {
 /*about page css */
 
 .top-container {
-  background-color: #e4f9f5;
+  background-color: #e5e1da;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -143,7 +156,34 @@ body.dark .bottom-p {
 
 body.dark .top-container {
   background-color: #121212;
-  color: white;
+  color: #efeeea;
+}
+
+body.dark .top-container .erti,
+body.dark .top-container .ori {
+  color: #efeeea;
+}
+
+body.dark .middle-container {
+  background-color: #121212;
+  color: #efeeea;
+}
+
+body.dark .middle-container .sami,
+body.dark .middle-container .text,
+body.dark .middle-container .contact-message,
+body.dark .middle-container .ori,
+body.dark .middle-container .otxi {
+  color: #efeeea;
+}
+
+body.dark .middle-container .skill-row {
+  background: #333;
+  box-shadow: none;
+}
+
+body.dark .middle-container hr {
+  background: linear-gradient(to right, #444, #efeeea);
 }
 
 .top-cloud,
@@ -152,28 +192,35 @@ body.dark .top-container {
 }
 
 .erti {
-  color: #66bfbf;
+  color: #222831;
   font-size: 5.625rem;
   margin: 0 auto 0 auto;
   font-family: "Sacramento", cursive;
 }
 
 .ori {
-  color: #66bfbf;
-  font-family: "Montserrat", sans-serif;
+  color: #505050;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2.5rem;
   font-weight: normal;
   padding-bottom: 40px;
+  border-bottom: none !important;
 }
-
-
 
 .sami {
   font-size: 2rem;
   font-weight: 600;
-  color: #11999e;
+  color: #222831;
   margin-bottom: 10px;
   font-family: "Montserrat", sans-serif;
+}
+
+.otxi {
+  color: #222831;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  border-bottom: none !important;
 }
 
 .middle-container {
@@ -181,16 +228,17 @@ body.dark .top-container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+
+  background-color: #e5e1da;
 }
 
 .skill-row {
-  background: #f5f7fa;
+  background: #c8c2b7;
   border-radius: 20px;
   padding: 30px;
   margin: 50px auto;
   max-width: 900px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 40px;
@@ -212,7 +260,7 @@ body.dark .top-container {
   font-size: 1.2rem;
   line-height: 1.7;
   color: #333;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .donut {
@@ -234,12 +282,12 @@ body.dark .top-container {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .dark .contact-message {
   color: white;
 }
-
 
 .contact-me {
   text-align: center;
@@ -253,7 +301,7 @@ body.dark .top-container {
   color: #fff;
   padding: 10px 20px;
   text-decoration: none;
-  background: #11cdd4;
+  background: #e07a5f;
   border-radius: 8px;
   display: inline-block;
   margin-top: 20px;
@@ -274,7 +322,7 @@ body.dark .top-container {
 hr {
   border: none;
   height: 6px;
-  background: linear-gradient(to right, #eaf6f6, #11999e);
+  background: linear-gradient(to right, #eaf6f6, #333);
   border-radius: 5px;
   width: 50%;
   margin: 20px auto;
@@ -283,7 +331,7 @@ hr {
 hr.xazi {
   border: none;
   height: 6px;
-  background: linear-gradient(to right, #eaf6f6, #11999e);
+  background: linear-gradient(to right, #eaf6f6, #333);
   border-radius: 5px;
   width: 50%;
   margin: 20px auto;
@@ -386,7 +434,7 @@ hr.xazi {
 }
 
 .left-right-container {
-  display: flex; 
+  display: flex;
   width: 100%;
 }
 
@@ -396,11 +444,10 @@ hr.xazi {
   padding: 0.4rem;
 }
 
-.right-div{
+.right-div {
   width: 60%;
   padding: 0.4rem;
   background-color: whitesmoke;
-
 }
 
 .contact-info {
@@ -439,11 +486,11 @@ h2 {
   display: inline-block;
   margin-bottom: 4px;
 }
-h3{
-color: black;
+h3 {
+  color: black;
   font-weight: bold;
   border-bottom: 2px solid gray;
-  
+
   margin-top: 18px;
   font-size: 1.6rem;
   margin-left: 10px;
@@ -455,11 +502,11 @@ color: black;
   display: flex;
 }
 
-.right-p{
-  font-family:Georgia, 'Times New Roman', Times, serif ;
+.right-p {
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.3rem;
-  color:#222831 !important;
-  } 
+  color: #222831 !important;
+}
 
 .education-container {
   margin-bottom: 15px;
@@ -517,25 +564,22 @@ color: black;
 .social-container {
   display: flex;
   align-items: center;
-  
 }
 
 .social-icon {
-  color: #000; 
+  color: #000;
 }
 
 body.dark .social-icon {
-  color: #000; 
-  }
-
+  color: #000;
+}
 
 /*  for contact post page*/
-
 
 .contact-page-wrapper {
   display: flex;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
   height: 100vh;
   margin: 0;
   padding-top: 100px;
@@ -546,7 +590,6 @@ body.dark .social-icon {
   justify-content: center;
   align-items: center;
   width: 100%;
-  
 }
 
 .post-creation {
@@ -558,7 +601,6 @@ body.dark .social-icon {
   max-width: 600px;
   text-align: left;
   margin-top: 30px;
-  
 }
 
 .post-creation h2 {
@@ -579,7 +621,7 @@ body.dark .social-icon {
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 95%;
-  resize: none; 
+  resize: none;
 }
 
 .post-creation button {
@@ -601,5 +643,3 @@ body.dark .social-icon {
 .post-creation button:hover {
   background-color: #0056b3;
 }
-
-
