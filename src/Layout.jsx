@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import lightDark from "./store/lightDark";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { useState } from "react";
 
-import gbFlag from "./images/gb.png";
-import geFlag from "./images/geo.png";
-import ruFlag from "./images/rus.png";
 
 function Layout({ children }) {
   const { t } = useTranslation();
@@ -15,38 +13,13 @@ function Layout({ children }) {
   const dark = lightDark((state) => state.dark);
   const switchMode = lightDark((state) => state.switchMode);
 
-  const normalizeLang = (lng) => {
-    if (!lng) return "eng";
-    if (lng.startsWith("en")) return "eng";
-    if (lng.startsWith("ka")) return "geo";
-    if (lng.startsWith("ru")) return "rus";
-    return "eng";
-  };
-
-  const [currentLang, setCurrentLang] = useState(normalizeLang(i18n.language));
-
-  useEffect(() => {
-    const onLanguageChanged = (lng) => {
-      setCurrentLang(normalizeLang(lng));
-    };
-    i18n.on("languageChanged", onLanguageChanged);
-    return () => {
-      i18n.off("languageChanged", onLanguageChanged);
-    };
-  }, []);
-
+ const [currentLang, setCurrentLang] = useState(i18n.language || "eng");
   const languageChangeHandler = (event) => {
     const selectedLang = event.target.value;
     i18n.changeLanguage(selectedLang);
     setCurrentLang(selectedLang);
   };
 
-  // Map lang to flag image URL (imported)
-  const flagMap = {
-    eng: gbFlag,
-    geo: geFlag,
-    rus: ruFlag,
-  };
 
   return (
     <div>
@@ -101,7 +74,6 @@ function Layout({ children }) {
             paddingRight: 0,
             paddingLeft: 0,
             fontSize: 0,
-            backgroundImage: `url(${flagMap[currentLang]})`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
             backgroundSize: "24px 16px",
