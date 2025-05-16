@@ -1,25 +1,26 @@
-
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import lightDark from "./store/lightDark";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useState } from "react";
-
+import GeorgiaSvg from "./svg/GeorgiaSvg";
+import UkSvg from "./svg/UkSvg";
+import RussiaSvg from "./svg/RussiaSvg";
 
 function Layout({ children }) {
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
 
   const dark = lightDark((state) => state.dark);
   const switchMode = lightDark((state) => state.switchMode);
 
- const [currentLang, setCurrentLang] = useState(i18n.language || "eng");
-  const languageChangeHandler = (event) => {
-    const selectedLang = event.target.value;
-    i18n.changeLanguage(selectedLang);
-    setCurrentLang(selectedLang);
+  const [currentLang, setCurrentLang] = useState(i18n.language || "eng");
+  const languageChangeHandler = (lang) => {
+    i18n.changeLanguage(lang);
+    setCurrentLang(lang);
+    setOpen(false);
   };
-
 
   return (
     <div>
@@ -57,43 +58,83 @@ function Layout({ children }) {
           {t("nav.community")}
         </NavLink>
 
-        {/* Language Select */}
-        <select
-          name="language"
-          id="language"
-          onChange={languageChangeHandler}
-          value={currentLang}
-          aria-label="Select language"
+        {/* Language selector container */}
+        <div
           style={{
             position: "absolute",
             top: 10,
             right: 8,
-            width: 70,
-            height: 30,
+            width: 80,
+            height: 100,
             cursor: "pointer",
-            paddingRight: 0,
-            paddingLeft: 0,
-            fontSize: 0,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center center",
-            backgroundSize: "24px 16px",
-            borderRadius: 4,
-            border: "1px solid #ccc",
-            appearance: "none",
-            WebkitAppearance: "none",
-            MozAppearance: "none",
+            userSelect: "none",
           }}
         >
-          <option value="eng" style={{ fontSize: "14px" }}>
-            ENG
-          </option>
-          <option value="geo" style={{ fontSize: "14px" }}>
-            GEO
-          </option>
-          <option value="rus" style={{ fontSize: "14px" }}>
-            RUS
-          </option>
-        </select>
+          {/* Flag container */}
+          <div
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label="Select language"
+            style={{
+              width: "100%",
+              height: 36,
+              border: "none",
+              padding: 0,
+              margin: 0,
+              borderRadius: 0,
+              overflow: "hidden",
+              backgroundColor: "transparent",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {currentLang === "eng" ? (
+              <UkSvg width="60px" height="36px" />
+            ) : currentLang === "geo" ? (
+              <GeorgiaSvg width="60px" height="36px" />
+            ) : (
+              <RussiaSvg width="60px" height="36px" />
+            )}
+          </div>
+
+          {/* Dropdown menu */}
+          {open && (
+            <div
+              style={{
+                position: "absolute",
+                top: 40,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: 50,
+                backgroundColor: "#fff",
+                borderRadius: 4,
+                border: "1px solid #ccc",
+                cursor: "pointer",
+                zIndex: 1000,
+                boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+              }}
+            >
+              <div
+                onClick={() => languageChangeHandler("eng")}
+                style={{ padding: "6px 10px" }}
+              >
+                <UkSvg />
+              </div>
+              <div
+                onClick={() => languageChangeHandler("geo")}
+                style={{ padding: "6px 10px" }}
+              >
+                <GeorgiaSvg />
+              </div>
+              <div
+                onClick={() => languageChangeHandler("rus")}
+                style={{ padding: "6px 10px" }}
+              >
+                <RussiaSvg />
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Dark Mode Button */}
         <button
