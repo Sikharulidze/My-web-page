@@ -6,7 +6,6 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import { useState } from "react";
 import GeorgiaSvg from "./svg/GeorgiaSvg";
 import UkSvg from "./svg/UkSvg";
-import RussiaSvg from "./svg/RussiaSvg";
 
 function Layout({ children }) {
   const { t } = useTranslation();
@@ -16,6 +15,7 @@ function Layout({ children }) {
   const switchMode = lightDark((state) => state.switchMode);
 
   const [currentLang, setCurrentLang] = useState(i18n.language || "eng");
+
   const languageChangeHandler = (lang) => {
     i18n.changeLanguage(lang);
     setCurrentLang(lang);
@@ -77,11 +77,6 @@ function Layout({ children }) {
             style={{
               width: "100%",
               height: 36,
-              border: "none",
-              padding: 0,
-              margin: 0,
-              borderRadius: 0,
-              overflow: "hidden",
               backgroundColor: "transparent",
               display: "flex",
               alignItems: "center",
@@ -92,9 +87,7 @@ function Layout({ children }) {
               <UkSvg width="60px" height="36px" />
             ) : currentLang === "geo" ? (
               <GeorgiaSvg width="60px" height="36px" />
-            ) : (
-              <RussiaSvg width="60px" height="36px" />
-            )}
+            ) : null}
           </div>
 
           {/* Dropdown menu */}
@@ -125,12 +118,6 @@ function Layout({ children }) {
                 style={{ padding: "6px 10px" }}
               >
                 <GeorgiaSvg />
-              </div>
-              <div
-                onClick={() => languageChangeHandler("rus")}
-                style={{ padding: "6px 10px" }}
-              >
-                <RussiaSvg />
               </div>
             </div>
           )}
