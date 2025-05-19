@@ -136,7 +136,7 @@ function Layout({ children }) {
             padding: 4,
             position: "absolute",
             top: 10,
-            right: 120,
+            right: 80,
             cursor: "pointer",
             transition: "background-color 0.3s ease",
             border: "none",

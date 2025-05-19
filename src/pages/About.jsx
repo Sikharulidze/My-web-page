@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import cloudImg from "../images/cloud.png";
 import giphyImg from "../images/giphy.png";
 import donutImg from "../images/donut.png";
 import proggraming1 from "../images/proggraming1.png";
@@ -14,12 +13,11 @@ function About() {
   return (
     <div>
       <div className="top-container">
-        <img className="top-cloud" src={cloudImg} alt="cloud" />
 
         <h1 className="erti">{t("about.title")}</h1>
         <h2 className="ori">{t("about.subtitle")}</h2>
 
-        <img className="bottom-cloud" src={cloudImg} alt="cloud" />
+    
 
         <div className="images-container">
           <img

@@ -56,14 +56,16 @@ const Community = () => {
     <div
       className="community-page-wrapper"
       style={{
-        backgroundColor: dark ? "#000" : "#DFD0B8",
-        color: dark ? "#fff" : "#000",
-        minHeight: "100vh",
-        padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
+        
+         color: dark ? "#fff" : "#000",
+    width: window.innerWidth <= 768 ? "90%" : "50%",
+    minHeight: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingBottom: "30px",
+    margin: window.innerWidth <= 768 ? "20px auto" : "30px auto",
       }}
     >
       <div

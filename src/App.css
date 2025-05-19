@@ -47,15 +47,17 @@ button:hover {
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #e5e1da;
+  position: relative;
 }
 
 .my-picture2 {
   border-radius: 50%;
   width: 300px;
-  position: absolute;
-  top: 30%;
-  right: 25%;
+  position: relative;
+  top: auto;
+  right: auto;
 }
 
 body.dark .My-picture {
@@ -186,11 +188,6 @@ body.dark .middle-container hr {
   background: linear-gradient(to right, #444, #efeeea);
 }
 
-.top-cloud,
-.bottom-cloud {
-  display: none;
-}
-
 .erti {
   color: #222831;
   font-size: 5.625rem;
@@ -228,7 +225,6 @@ body.dark .middle-container hr {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-color: #e5e1da;
 }
 
@@ -247,13 +243,11 @@ body.dark .middle-container hr {
 
 .code-img,
 .donut {
-  width: 220px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-right: 40px;
-  flex-shrink: 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: auto;
+  margin-right: 0;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .text {
@@ -340,7 +334,7 @@ hr.xazi {
 .images-container {
   display: flex;
   justify-content: space-between;
-  gap: 200px;
+  gap: 80px;
   margin-top: 40px;
 }
 
@@ -642,4 +636,148 @@ body.dark .social-icon {
 
 .post-creation button:hover {
   background-color: #d45f43;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .home-top {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 10px;
+  }
+
+  .home-page {
+    padding: 0 1rem 10px 1rem;
+  }
+
+  .my-picture2 {
+    position: static;
+    width: 200px;
+    margin: 20px auto;
+  }
+
+  .bottom-text {
+    font-size: 2rem;
+    margin-right: 0;
+  }
+
+  .bottom-p {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .skill-row {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .code-img,
+  .donut {
+    width: 90%;
+  }
+
+  .images-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .images-container {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .contact-page-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .first-div {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    height: auto;
+    width: 94.4%;
+  }
+
+  .first-div-text p {
+    font-size: 1rem;
+  }
+
+  .contact-ul {
+    font-size: 1.2rem;
+  }
+
+  .My-picture img {
+    margin-left: 70px;
+  }
+
+  .contact-p {
+    font-size: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .contact-item,
+  .social-container {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .contact-item p.contact-p,
+  .social-container a.contact-link {
+    flex: 1 1 auto;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+  }
+
+  .social-icon {
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .top-container {
+    height: auto;
+    padding-bottom: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .middle-container {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  h1.erti {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  h2.ori {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+  }
+
+  .left-right-container {
+    flex-direction: column;
+  }
+
+  .left-div,
+  .right-div {
+    width: 100%;
+  }
+
+  .right-div {
+    margin-top: 1rem; /* optional spacing between sections */
+  }
 }

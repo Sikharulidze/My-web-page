@@ -67,7 +67,7 @@ function Bio() {
             <div className="contact-item">
               <FontAwesomeIcon
                 icon={faEnvelope}
-                style={{ marginRight: "10px", fontSize: "15px" }} // Custom styling for the email icon
+                style={{ marginRight: "10px", fontSize: "15px" }}
               />
               <p className="contact-p">Mariam.sikha.22@gmail.com</p>
             </div>
