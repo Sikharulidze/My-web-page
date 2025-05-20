@@ -49,12 +49,11 @@ const Community = () => {
   };
 
   const deletePost = async (postId) => {
-    console.log("Trying to delete post id:", postId);
     try {
       await axios.delete(
         `https://my-web-page-server-production.up.railway.app/posts/${postId}`
       );
-      alert(t("community.postDeletion.success"));
+      alert(t("community.postDelete.success"));
       // Optionally refresh posts or remove deleted post from state:
       setPosts(posts.filter((post) => post.id !== postId));
     } catch (error) {
