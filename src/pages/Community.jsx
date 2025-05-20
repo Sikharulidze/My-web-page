@@ -18,7 +18,10 @@ const Community = () => {
     const postData = { title, content };
 
     try {
-      await axios.post("http://localhost:5000/api/posts", postData);
+      await axios.post(
+        "https://my-web-page-server-production.up.railway.app/api/posts",
+        postData
+      );
       alert(t("community.postCreation.success"));
       setTitle("");
       setContent("");
@@ -31,7 +34,9 @@ const Community = () => {
   const fetchPosts = async () => {
     try {
       if (!showPosts) {
-        const response = await axios.get("http://localhost:5000/api/posts");
+        const response = await axios.get(
+          "https://my-web-page-server-production.up.railway.app/api/posts"
+        );
         setPosts(response.data);
       }
       setShowPosts((prevState) => !prevState);
@@ -43,7 +48,9 @@ const Community = () => {
 
   const deletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
+      await axios.delete(
+        `https://my-web-page-server-production.up.railway.app/api/posts/${postId}`
+      );
       alert(t("community.postDelete.success"));
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
     } catch (error) {
@@ -56,16 +63,15 @@ const Community = () => {
     <div
       className="community-page-wrapper"
       style={{
-        
-         color: dark ? "#fff" : "#000",
-    width: window.innerWidth <= 768 ? "90%" : "50%",
-    minHeight: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingBottom: "30px",
-    margin: window.innerWidth <= 768 ? "20px auto" : "30px auto",
+        color: dark ? "#fff" : "#000",
+        width: window.innerWidth <= 768 ? "90%" : "50%",
+        minHeight: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        paddingBottom: "30px",
+        margin: window.innerWidth <= 768 ? "20px auto" : "30px auto",
       }}
     >
       <div
@@ -113,7 +119,16 @@ const Community = () => {
                 border: "1px solid #3C3D37",
               }}
             />
-            <button type="submit" style={{ padding: "10px 15px", backgroundColor: "#e07a5f", color: "#fff", border: "none", cursor: "pointer" }}>
+            <button
+              type="submit"
+              style={{
+                padding: "10px 15px",
+                backgroundColor: "#e07a5f",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
               {t("community.createPostButton")}
             </button>
           </form>
@@ -122,7 +137,9 @@ const Community = () => {
             onClick={fetchPosts}
             style={{ marginTop: "10px", padding: "10px 15px" }}
           >
-            {showPosts ? t("community.collapsePosts") : t("community.viewAllPosts")}
+            {showPosts
+              ? t("community.collapsePosts")
+              : t("community.viewAllPosts")}
           </button>
         </div>
 

@@ -54,16 +54,15 @@ function Bio() {
           className="profile-img"
         />
         <div className="first-div-text">
-           <h1>{t("bio.name")}</h1>
+          <h1>{t("bio.name")}</h1>
           <p>{t("bio.title")}</p>
         </div>
       </div>
 
       <div className="left-right-container">
         <div className="left-div">
-           <h2>{t("bio.contactDetails")}</h2>
+          <h2>{t("bio.contactDetails")}</h2>
           <div className="contact-info">
-          
             <div className="contact-item">
               <FontAwesomeIcon
                 icon={faEnvelope}
@@ -72,7 +71,6 @@ function Bio() {
               <p className="contact-p">Mariam.sikha.22@gmail.com</p>
             </div>
 
-           
             <ContactItem
               Icon={FaPhoneAlt}
               label="Phone"
@@ -86,7 +84,11 @@ function Bio() {
 
             {socialLinks.map(({ Icon, label, url }) => (
               <div className="social-container" key={label}>
-                <Icon size={32} style={{ marginRight: "30px", marginTop: "15px" }} className="social-icon" />
+                <Icon
+                  size={32}
+                  style={{ marginRight: "30px", marginTop: "15px" }}
+                  className="social-icon"
+                />
                 <a
                   href={url}
                   target="_blank"
@@ -107,13 +109,9 @@ function Bio() {
                 <div className="line"></div>
               </div>
               <div className="education-text">
-                <p className="contact-p">
-                  {t("bio.education.bachelor")}
-                </p>
+                <p className="contact-p">{t("bio.education.bachelor")}</p>
 
-                <p className="contact-p">
-                 {t("bio.education.master")}
-                </p>
+                <p className="contact-p">{t("bio.education.master")}</p>
               </div>
             </div>
           </div>
@@ -131,10 +129,10 @@ function Bio() {
             <li>EJS</li>
           </ul>
 
-           <h2>{t("bio.skills.softTitle")}</h2>
+          <h2>{t("bio.skills.softTitle")}</h2>
 
           <ul className="contact-ul">
-             <li>{t("bio.softSkills.learnability")}</li>
+            <li>{t("bio.softSkills.learnability")}</li>
             <li>{t("bio.softSkills.detail")}</li>
             <li>{t("bio.softSkills.flexibility")}</li>
             <li>{t("bio.softSkills.problemSolving")}</li>
@@ -144,8 +142,8 @@ function Bio() {
         </div>
 
         <div className="right-div">
-         <h3>{t("bio.summary.title")}</h3>
-           {["1", "2", "3", "4", "5", "6"].map(key => (
+          <h3>{t("bio.summary.title")}</h3>
+          {["1", "2", "3", "4", "5", "6"].map((key) => (
             <p className="right-p" key={key}>
               {t(`bio.summary.${key}`)}
             </p>

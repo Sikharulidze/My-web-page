@@ -776,8 +776,4 @@ body.dark .social-icon {
   .right-div {
     width: 100%;
   }
-
-  .right-div {
-    margin-top: 1rem; /* optional spacing between sections */
-  }
 }
