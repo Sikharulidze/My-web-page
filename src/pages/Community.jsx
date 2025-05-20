@@ -19,9 +19,10 @@ const Community = () => {
 
     try {
       await axios.post(
-        "https://my-web-page-server-production.up.railway.app/api/posts",
+        "https://my-web-page-server-production.up.railway.app/posts",
         postData
       );
+
       alert(t("community.postCreation.success"));
       setTitle("");
       setContent("");
@@ -35,8 +36,9 @@ const Community = () => {
     try {
       if (!showPosts) {
         const response = await axios.get(
-          "https://my-web-page-server-production.up.railway.app/api/posts"
+          "https://my-web-page-server-production.up.railway.app/posts"
         );
+
         setPosts(response.data);
       }
       setShowPosts((prevState) => !prevState);
@@ -48,9 +50,7 @@ const Community = () => {
 
   const deletePost = async (postId) => {
     try {
-      await axios.delete(
-        `https://my-web-page-server-production.up.railway.app/api/posts/${postId}`
-      );
+      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
       alert(t("community.postDelete.success"));
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
     } catch (error) {
