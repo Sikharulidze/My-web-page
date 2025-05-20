@@ -50,12 +50,14 @@ const Community = () => {
 
   const deletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
-      alert(t("community.postDelete.success"));
+      await axios.delete(
+        `https://my-web-page-server-production.up.railway.app/posts/${postId}`
+      );
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+      alert(t("community.postDeletion.success"));
     } catch (error) {
       console.error("Error deleting post", error);
-      alert(t("community.postDelete.error"));
+      alert(t("community.postDeletion.error"));
     }
   };
 
