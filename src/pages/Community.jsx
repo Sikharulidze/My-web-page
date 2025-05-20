@@ -49,14 +49,17 @@ const Community = () => {
   };
 
   const deletePost = async (postId) => {
+    console.log("Trying to delete post id:", postId);
     try {
       await axios.delete(
         `https://my-web-page-server-production.up.railway.app/posts/${postId}`
       );
-      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
       alert(t("community.postDeletion.success"));
+      // Optionally refresh posts or remove deleted post from state:
+      setPosts(posts.filter((post) => post.id !== postId));
     } catch (error) {
       console.error("Error deleting post", error);
+
       alert(t("community.postDeletion.error"));
     }
   };
@@ -180,12 +183,24 @@ const Community = () => {
                     backgroundColor: dark ? "#F7E9E1" : "#F7E9E1",
                     color: dark ? "#000" : "#000",
                     borderRadius: "10px",
+                    overflowX: "hidden",
                   }}
                 >
                   <h4 style={{ color: dark ? "#000" : "#000" }}>
                     {post.title}
                   </h4>
-                  <p>{post.content}</p>
+                  <p
+                    style={{
+                      wordBreak: "break-word",
+                      overflowWrap: "break-word",
+                      hyphens: "auto",
+                      whiteSpace: "normal",
+                      margin: 0,
+                    }}
+                  >
+                    {post.content}
+                  </p>
+
                   <small>
                     {t("community.createdAt", {
                       date: new Date(post.created_at).toLocaleString(),
